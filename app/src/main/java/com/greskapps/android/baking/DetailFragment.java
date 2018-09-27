@@ -47,8 +47,7 @@ public class DetailFragment extends Fragment implements ExoPlayer.EventListener 
         super.onAttach(context);
     }
 
-    public DetailFragment() {
-    }
+    public DetailFragment() { }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

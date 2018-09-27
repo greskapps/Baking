@@ -6,7 +6,7 @@
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="image_icon_side">48dp</dimen>
     <dimen name="image_side">88dp</dimen>
-    <dimen name="image_side_2x">176</dimen>
+    <dimen name="image_side_2x">176dp</dimen>
     <dimen name="paddingLarge">12dp</dimen>
     <dimen name="paddingMedium">8dp</dimen>
     <dimen name="paddingSmall">4dp</dimen>
