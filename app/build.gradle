@@ -4,7 +4,8 @@ android {
     compileSdkVersion 27
     defaultConfig {
         applicationId "com.greskapps.android.baking"
-        minSdkVersion 15
+//      changed minSdkVersion from 15 to 16 to support up navigation
+        minSdkVersion 16
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"

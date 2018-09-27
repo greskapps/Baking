@@ -1,6 +1,7 @@
 package com.greskapps.android.baking;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,6 +24,7 @@ public class RecipeAdapter extends ArrayAdapter<Recipe> {
         textView = changeView.findViewById(R.id.recipe_item);
 
         textView.setText(recipes.title);
+        textView.setTextColor(Color.BLACK);
         return textView;
     }
 

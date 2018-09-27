@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:textSize="@dimen/textLarge"
         tools:text="item"
-        android:padding="@dimen/paddingLarge" />
-
+        android:padding="@dimen/paddingLarge"
+        android:gravity="center" />
 
 </LinearLayout>
