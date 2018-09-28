@@ -226,13 +226,41 @@ public class DetailFragment extends Fragment implements ExoPlayer.EventListener 
         mMediaSession.setActive(false);
     }
 
+//  added media release per reviewer suggestions
+//      (onStop, onStart and onResume; modified onPause -- Lines 231-266)
     @Override
     public void onPause() {
         super.onPause();
-        if (mExoPlayer != null) {
-            mExoPlayer.setPlayWhenReady(false);
+        if (Util.SDK_INT <= 23 && mExoPlayer != null) {
+            //  changed per reviewer suggestion (was false)
+            mExoPlayer.setPlayWhenReady(true);
             Bundle bundle = new Bundle();
             onSaveInstanceState(bundle);
+            releasePlayer();
+        }
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (Util.SDK_INT > 23) {
+            releasePlayer();
+        }
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        if (Util.SDK_INT > 23) {
+            initializeMediaSession();
+        }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if ((Util.SDK_INT <= 23 || mExoPlayer == null)) {
+            initializeMediaSession();
         }
     }
 

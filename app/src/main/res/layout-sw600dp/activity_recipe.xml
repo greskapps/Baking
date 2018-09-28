@@ -12,6 +12,7 @@
 
     <fragment
         android:name="com.greskapps.android.baking.StepsFragment"
+        android:id="@+id/steps_fragment_sw600dp"
         android:layout_width="@dimen/paneWidth"
         android:layout_height="match_parent" />
 
