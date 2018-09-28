@@ -31,7 +31,7 @@ public class Recipe implements Parcelable {
         media = new ArrayList<String>();
         input.readList(ingredients, getClass().getClassLoader());
         input.readList(steps, getClass().getClassLoader());
-        input.readList(ingredients, getClass().getClassLoader());
+        input.readList(instructions, getClass().getClassLoader());
         input.readList(media, getClass().getClassLoader());
     }
 
