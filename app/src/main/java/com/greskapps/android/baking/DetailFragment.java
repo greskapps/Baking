@@ -244,6 +244,9 @@ public class DetailFragment extends Fragment implements ExoPlayer.EventListener 
     public void onStop() {
         super.onStop();
         if (Util.SDK_INT > 23) {
+            mExoPlayer.setPlayWhenReady(true);
+            Bundle bundle = new Bundle();
+            onSaveInstanceState(bundle);
             releasePlayer();
         }
     }
@@ -251,23 +254,34 @@ public class DetailFragment extends Fragment implements ExoPlayer.EventListener 
     @Override
     public void onStart() {
         super.onStart();
+        final Recipe recipe = getActivity().getIntent().getParcelableExtra("parcel_data");
         if (Util.SDK_INT > 23) {
-            initializeMediaSession();
+            mPlayerView.setVisibility(View.VISIBLE);
+            initializePlayer(Uri.parse(recipe.media.get(position)));
+//          added per reviewer requirement
+            mExoPlayer.getPlayWhenReady();
         }
     }
 
     @Override
     public void onResume() {
         super.onResume();
+        final Recipe recipe = getActivity().getIntent().getParcelableExtra("parcel_data");
         if ((Util.SDK_INT <= 23 || mExoPlayer == null)) {
-            initializeMediaSession();
+            mPlayerView.setVisibility(View.VISIBLE);
+            initializePlayer(Uri.parse(recipe.media.get(position)));
+//          added per reviewer requirement
+            mExoPlayer.getPlayWhenReady();
         }
     }
 
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
-        outState.putLong("playerPosition", mExoPlayer.getCurrentPosition());
-        super.onSaveInstanceState(outState);
+//      added null check on ExoPlayer per reviewer requirement
+        if (mExoPlayer != null) {
+            outState.putLong("playerPosition", mExoPlayer.getCurrentPosition());
+            super.onSaveInstanceState(outState);
+        }
     }
 
     @Override
