@@ -40,7 +40,7 @@ public class DetailFragment extends Fragment implements ExoPlayer.EventListener 
     private SimpleExoPlayerView mPlayerView;
     private static MediaSessionCompat mMediaSession;
     private PlaybackStateCompat.Builder mStateBuilder;
-    long playerPosition;
+    private long playerPosition;
 
     @Override
     public void onAttach(Context context) {
